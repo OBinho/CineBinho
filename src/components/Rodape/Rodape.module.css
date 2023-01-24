@@ -1,0 +1,21 @@
+.rodape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.1em 15em;
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+.rodape h2 {
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--branco);
+}
+
+.rodape h3 {
+    padding-left: 1em;
+    font-size: 8px;
+    font-weight: 400;
+    color: var(--branco);
+}
