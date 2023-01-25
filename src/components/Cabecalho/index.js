@@ -5,19 +5,21 @@ import CabecalhoLink from "components/CabecalhoLink";
 
 function Cabecalho() {
     return (
-        <header className={styles.cabecalho}>
+        <>
             <Link to="./">
-                <img src={logo} alt='Logo do CineBinho' style={{width: 100, height: 100}}/>
+                <img src={logo} alt='Logo do CineBinho' className={styles.logo} />
             </Link>
-            <nav>
-                <CabecalhoLink url='./'>
-                    Home
-                </CabecalhoLink>
-                <CabecalhoLink url='./Favoritos'>
-                    Favoritos
-                </CabecalhoLink>
-            </nav>
-        </header>
+            <header className={styles.cabecalho}>
+                <nav>
+                    <CabecalhoLink url='./'>
+                        Home
+                    </CabecalhoLink>
+                    <CabecalhoLink url='./Favoritos'>
+                        Favoritos
+                    </CabecalhoLink>
+                </nav>
+            </header>
+        </>
     )
 }
 
