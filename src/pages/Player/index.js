@@ -1,17 +1,23 @@
 import Banner from 'components/Banner';
 import Titulo from 'components/Titulo';
-import videos from 'json/db.json';
 import NaoEncontrada from 'pages/NaoEncontrada';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Player.module.css';
 
 function Player() {
+    const [video, setvideo] = useState();
     const parametros = useParams();
-    const video = videos.find((video) => {
-        return video.id === Number(parametros.id);
-    });
 
-    if(!video) {
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/obinho/cinebinho-api/videos?id=${parametros.id}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setvideo(...dados)
+            })
+    }, [])
+
+    if (!video) {
         return <NaoEncontrada />
     }
 

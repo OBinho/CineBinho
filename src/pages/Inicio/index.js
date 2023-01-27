@@ -2,17 +2,27 @@ import styles from './Inicio.module.css';
 import Banner from "components/Banner";
 import Card from "components/Card";
 import Titulo from "components/Titulo";
-import videos from 'json/db.json';
+import { useEffect, useState } from 'react';
 
 function Inicio() {
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/obinho/cinebinho-api/videos')
+        .then(resposta => resposta.json())
+        .then(dados => {
+            setVideos(dados)
+        })
+    }, []);
+
     return (
         <>
-            <Banner imagem='home'/>
+            <Banner imagem='home' />
             <Titulo>
                 <h1>Bem Vindo ao CineBinho</h1>
             </Titulo>
             <section className={styles.container}>
-            {/* 
+                {/* 
                 Nesse trecho de código foi usado o método .map. 
                 Esse método percorre a lista e retorna um card para cada item. 
                 Dentro do card foi enviado o valor de {...musica}, 
